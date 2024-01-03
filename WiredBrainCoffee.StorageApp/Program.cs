@@ -8,17 +8,34 @@ namespace WiredBrainCoffee.StorageApp
         static void Main(string[] args)
         {
             var employeeRepository = new GenericRepository<Employee>();
-            employeeRepository.Add(new Employee { Id = 1, Name = "Julia" });
-            employeeRepository.Add(new Employee { Id = 2, Name = "Anna" });
-            employeeRepository.Add(new Employee { Id = 3, Name = "Thomas" });
-            employeeRepository.Save();
+            AddEmployees(employeeRepository);
+            GetEmployeeByID(employeeRepository);
 
 
             var organizationRepository = new GenericRepository<Organization>();
-            organizationRepository.Add(new Organization { Id = 1, Name = "Pluralsight" });
-            organizationRepository.Add(new Organization { Id = 2, Name = "Microsoft" });
-            organizationRepository.Save();
+            AddOrganizations(organizationRepository);
 
+        }
+
+        private static void GetEmployeeByID(GenericRepository<Employee> employeeRepository)
+        {
+            var employee = employeeRepository.GetById(2);
+            Console.WriteLine($"2:{employee.Name}");
+        }
+
+        private static void AddEmployees(GenericRepository<Employee> employeeRepository)
+        {
+            employeeRepository.Add(new Employee { Name = "Julia" });
+            employeeRepository.Add(new Employee { Name = "Anna" });
+            employeeRepository.Add(new Employee { Name = "Thomas" });
+            employeeRepository.Save();
+        }
+
+        private static void AddOrganizations(GenericRepository<Organization> organizationRepository)
+        {
+            organizationRepository.Add(new Organization { Name = "Pluralsight" });
+            organizationRepository.Add(new Organization { Name = "Microsoft" });
+            organizationRepository.Save();
         }
     }
 }
