@@ -1,8 +1,11 @@
 ﻿namespace WiredBrainCoffee.StorageApp.Repositories
 {
-    public class GenericRepository<T>
+    public class GenericRepository<T, TKey>
     {
-        private readonly List<T> _employees = [];
+
+        public TKey? Key { get; set; }
+
+        protected readonly List<T> _employees = [];
 
         public void Add(T employee)
         {
@@ -15,6 +18,16 @@
             {
                 Console.WriteLine(employee);
             }
+        }
+    }
+
+
+    public class GenericEmployeeRepositoryWithRemove<T> : GenericRepository<T, string>
+    {
+        public void Remove(T employee)
+        {
+            _employees.Remove(employee);
+
         }
     }
 }
