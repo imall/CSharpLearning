@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generics", "Generics\Generics.csproj", "{3273E50D-16DE-4E6A-9797-3D8EBA6B3D3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiredBrainCoffee.StorageApp", "WiredBrainCoffee.StorageApp\WiredBrainCoffee.StorageApp.csproj", "{4AF662F2-3031-4D50-A3DE-9C2CAB085C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3273E50D-16DE-4E6A-9797-3D8EBA6B3D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3273E50D-16DE-4E6A-9797-3D8EBA6B3D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3273E50D-16DE-4E6A-9797-3D8EBA6B3D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF662F2-3031-4D50-A3DE-9C2CAB085C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF662F2-3031-4D50-A3DE-9C2CAB085C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF662F2-3031-4D50-A3DE-9C2CAB085C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF662F2-3031-4D50-A3DE-9C2CAB085C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
