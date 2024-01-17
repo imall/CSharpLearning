@@ -1,4 +1,5 @@
-﻿using WiredBrainCoffee.StorageApp.Entities;
+﻿using WiredBrainCoffee.StorageApp.Data;
+using WiredBrainCoffee.StorageApp.Entities;
 using WiredBrainCoffee.StorageApp.Repositories;
 
 namespace WiredBrainCoffee.StorageApp
@@ -7,23 +8,24 @@ namespace WiredBrainCoffee.StorageApp
     {
         static void Main(string[] args)
         {
-            var employeeRepository = new GenericRepository<Employee>();
+            var employeeRepository = new SqlRepository<Employee>(new StorageAllDbContext());
+
             AddEmployees(employeeRepository);
             GetEmployeeByID(employeeRepository);
 
 
-            var organizationRepository = new GenericRepository<Organization>();
+            var organizationRepository = new ListRepository<Organization>();
             AddOrganizations(organizationRepository);
 
         }
 
-        private static void GetEmployeeByID(GenericRepository<Employee> employeeRepository)
+        private static void GetEmployeeByID(IRepository<Employee> employeeRepository)
         {
             var employee = employeeRepository.GetById(2);
-            Console.WriteLine($"2:{employee.Name}");
+            Console.WriteLine($"2:{employee?.Name}");
         }
 
-        private static void AddEmployees(GenericRepository<Employee> employeeRepository)
+        private static void AddEmployees(IRepository<Employee> employeeRepository)
         {
             employeeRepository.Add(new Employee { Name = "Julia" });
             employeeRepository.Add(new Employee { Name = "Anna" });
@@ -31,7 +33,7 @@ namespace WiredBrainCoffee.StorageApp
             employeeRepository.Save();
         }
 
-        private static void AddOrganizations(GenericRepository<Organization> organizationRepository)
+        private static void AddOrganizations(IRepository<Organization> organizationRepository)
         {
             organizationRepository.Add(new Organization { Name = "Pluralsight" });
             organizationRepository.Add(new Organization { Name = "Microsoft" });
